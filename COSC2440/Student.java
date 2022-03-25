@@ -1,5 +1,4 @@
 package COSC2440;
-import java.util.Scanner;
 import java.util.Date;
 
 public class Student {
@@ -12,6 +11,7 @@ public class Student {
         this.id = id;
         this.birthdate = birthdate;
     }
+    
 
 }
 
