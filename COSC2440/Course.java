@@ -9,4 +9,16 @@ public class Course {
         this.id = id;
         this.credit = credit;
     }
+
+    public String getCourseName() {
+        return name;
+    }
+
+    public int getCourseID() {
+        return id;
+    }
+
+    public int getCourseCredit() {
+        return credit;
+    }
 }

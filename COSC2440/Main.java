@@ -14,13 +14,8 @@ public class Main {
         System.out.println("Enter student ID: ");
         int id =  Integer.parseInt(in.nextLine());
         
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("Enter the date of birth: ");
-        String inDate = in.nextLine().replaceAll("\\s+","");
-        Date birthdate = dateformat.parse(inDate);
         
-        Student stu = new Student(name, id, birthdate);
-        System.out.println(stu);
+        
     }
 }
 

@@ -13,5 +13,13 @@ public class Student {
     }
     
 
+    public String getStudentName() {
+        return name;
+    }
+
+    public int getStudentID() {
+        return id;
+    }
+
 }
 
