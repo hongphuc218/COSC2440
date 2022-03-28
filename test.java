@@ -3,7 +3,7 @@ import java.io.FileReader;
 
 public class test {
     public static void main(String[] args) {
-        String file = "src\\default.csv";
+    String file = "src\\default.csv";
     BufferedReader reader = null;
     String line = "";
     try {
@@ -14,6 +14,7 @@ public class test {
 
         for (String index : row)  {
             System.out.print(index);
+            System.out.print("|");
         }
         System.out.println();
         }
