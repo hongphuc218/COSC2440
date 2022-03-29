@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\hongp\\Downloads\\opencsv-5.2.jar"
+        ],
+        "exclude": [
+            "c:\\Program Files\\javacsv.jar"
+        ]
+    }
+}

@@ -2,7 +2,9 @@ package COSC2440.course;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course {    
+import COSC2440.ReadCSV.PrintOut;
+
+public class Course implements PrintOut{    
     String id;
     String name;
     int credit;
@@ -45,5 +47,9 @@ public class Course {
 
     public String toString() {
         return "Course ID: " + id + " " + "| Course name: " + name + " " + "| Number of credits: " + credit;
+    }
+
+    public String[] toPrint() {
+        return new String[] {this.id, this.name, String.valueOf(this.credit)};
     }
 }

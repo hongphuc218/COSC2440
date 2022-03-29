@@ -1,12 +1,17 @@
 package COSC2440.student;
 
-public class Student {
+import COSC2440.ReadCSV.PrintOut;
+
+public class Student implements PrintOut{
     String name;
     String id;
     String birthdate;
 
     
     
+    public Student(String id, String name, String birthdate) {
+    }
+
     public String getName() {
         return name;
     }
@@ -31,13 +36,18 @@ public class Student {
         this.birthdate = birthdate;
     }
 
+    public static Student createStudent(String id, String name, String birhtdate) {
+        return null;
+    }
+    
     public String toString() {
         return "Student ID: " + id + " " + "| Student name: " + name + " " + "| Birthdate: " + birthdate;
     }
 
-    public Student createStudent(String string, String string2, String string3) {
-        return null;
-    }
+    public String[] toPrint(){
+        return new String[]{this.id, this.name, this.birthdate};
+    
+      }    
 
 }
 

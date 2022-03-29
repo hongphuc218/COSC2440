@@ -47,12 +47,30 @@ public class StudentEnrollment implements StudentEnrollmentManager{
         return semester;
     }
 
-    public static StudentEnrollment newStudentEnrolment(Student student, Course course, String semester){
+    public static StudentEnrollment newStudentEnrollment(Student student, Course course, String semester){
         return new StudentEnrollment(student, course,semester);
       }
 
     public String toString() {
         return "student: " + student.getId() + " " + student.getName() + " | course: " + course.getId() + " " + course.getName() + " | Semester: " + semester;
     }
-  
+    
+    public String[] toPrint() {
+        return new String[]{this.student.getId(), this.course.getId(), this.semester};
+    }
+
+    @Override
+    public boolean add() {
+        return false;
+    }
+
+    @Override
+    public boolean delete() {
+        return false;
+    }
+
+    @Override
+    public boolean update() {
+        return false;
+    }
 }
