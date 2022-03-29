@@ -1,18 +1,12 @@
 package COSC2440.student;
-import java.util.Date;
 
 public class Student {
     String name;
     String id;
-    Date birthdate;
+    String birthdate;
 
-    public Student (String id, String name, Date birthdate) {
-        this.name = name;
-        this.id = id;
-        this.birthdate = birthdate;
-    }
     
-
+    
     public String getName() {
         return name;
     }
@@ -21,24 +15,29 @@ public class Student {
         this.name = name;
     }
 
-    public String getID() {
+    public String getId() {
         return id;
     }
 
-    public void setID(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
     public String toString() {
         return "Student ID: " + id + " " + "| Student name: " + name + " " + "| Birthdate: " + birthdate;
     }
+
+    public Student createStudent(String string, String string2, String string3) {
+        return null;
+    }
+
 }
 

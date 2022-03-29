@@ -3,7 +3,8 @@ package COSC2440.enrollment;
 import COSC2440.course.Course;
 import COSC2440.student.Student;
 
-public class StudentEnrollment {
+
+public class StudentEnrollment implements StudentEnrollmentManager{
     Student student;
     Course course;
     String semester;
@@ -14,12 +15,12 @@ public class StudentEnrollment {
         this.semester = semester;
     }
 
-    public String getStudentID(){
-        return student.getID();
+    public String getStudentId(){
+        return student.getId();
     }
 
     public String getCourseId(){
-        return  course.getID();
+        return  course.getId();
     }
 
     public Student getStudent() {
@@ -42,12 +43,16 @@ public class StudentEnrollment {
         return semester;
     }
 
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public static String setSemester(String semester) {
+        return semester;
     }
 
+    public static StudentEnrollment newStudentEnrolment(Student student, Course course, String semester){
+        return new StudentEnrollment(student, course,semester);
+      }
+
     public String toString() {
-        return "student: " + student.getID() + " " + student.getName() + " | course: " + course.getID() + " " + course.getName() + " | Semester: " + semester;
+        return "student: " + student.getId() + " " + student.getName() + " | course: " + course.getId() + " " + course.getName() + " | Semester: " + semester;
     }
-    
+  
 }

@@ -3,28 +3,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {    
-    private String id;
-    private String name;
-    private int credit;
+    String id;
+    String name;
+    int credit;
 
-    private List<Course> courseList = new ArrayList<>();
+    List<Course> courses = new ArrayList<Course>();
 
-    public Course (String id, String name, int credit) {
-        this.name = name;
+    public Course(String id, String name, int credit) {
         this.id = id;
+        this.name = name;
         this.credit = credit;
     }
 
-    public Course () {}
-
     public List<Course> getCourseList() {
-        return courseList;
+        return courses;
     }
     public String getName() {
         return name;
     }
 
-    public String getID() {
+    public String getId() {
         return id;
     }
 
@@ -33,11 +31,14 @@ public class Course {
     }
 
     public void addCourse(Course course) {
-        courseList.add(course);
+        courses.add(course);
     }
 
+    public static Course createCourse(String id, String name, int credit) {
+        return new Course(id, name, credit);
+    }
     public void getAllCourses() {
-        for (Course course : courseList) {
+        for (Course course : courses) {
             System.out.println(course.toString());
         }
     }
