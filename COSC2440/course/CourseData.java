@@ -7,11 +7,11 @@ public class CourseData {
     HashSet<Course> cSet = new HashSet<>();
 
     public boolean add(Course course) {
-        return this.cSet.add(course);
+        return cSet.add(course);
     }
 
     public boolean delete(Course o) {
-        return this.cSet.remove(o);
+        return cSet.remove(o);
     }
 
     public boolean update(Course o, Course newO) {
@@ -20,7 +20,7 @@ public class CourseData {
     }
 
     public <string> Course getOne(string detail) {
-        for (Course s: this.cSet
+        for (Course s: cSet
         ) { if (detail.equals(s.getName()) | detail.equals(s.getId())){
           return s;
         }}

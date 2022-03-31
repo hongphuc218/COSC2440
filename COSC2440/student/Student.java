@@ -10,6 +10,9 @@ public class Student implements PrintOut{
     
     
     public Student(String id, String name, String birthdate) {
+        this.id = id;
+        this.name = name;
+        this.birthdate = birthdate;
     }
 
     public String getName() {
@@ -37,7 +40,7 @@ public class Student implements PrintOut{
     }
 
     public static Student createStudent(String id, String name, String birhtdate) {
-        return null;
+        return new Student(id, name, birhtdate);
     }
     
     public String toString() {
