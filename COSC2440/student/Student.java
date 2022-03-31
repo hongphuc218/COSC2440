@@ -1,5 +1,7 @@
 package COSC2440.student;
 
+import java.util.HashSet;
+
 import COSC2440.ReadCSV.PrintOut;
 
 public class Student implements PrintOut{
@@ -14,6 +16,8 @@ public class Student implements PrintOut{
         this.name = name;
         this.birthdate = birthdate;
     }
+
+    public static HashSet<Student> sSet = new HashSet<>();
 
     public String getName() {
         return name;
@@ -37,6 +41,32 @@ public class Student implements PrintOut{
 
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public static boolean add(Student student) {
+        return sSet.add(student);
+    }
+
+    public boolean delete(Student o) {
+        return sSet.remove(o);
+    }
+
+    public boolean update(Student o, Student newO) {
+        this.delete(o);
+        return add(newO);
+    }
+
+    public <string> Student getOne(string detail) {
+        for (Student s: sSet
+        ) { if (detail.equals(s.getName()) | detail.equals(s.getId())){
+          return s;
+        }}
+        return null;
+    }
+    
+    
+    public static HashSet<Student> getAll() {
+       return (new HashSet<>(sSet));
     }
 
     public static Student createStudent(String id, String name, String birhtdate) {

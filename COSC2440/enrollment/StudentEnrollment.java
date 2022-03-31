@@ -1,5 +1,7 @@
 package COSC2440.enrollment;
 
+import java.util.HashSet;
+
 import COSC2440.course.Course;
 import COSC2440.student.Student;
 
@@ -15,6 +17,8 @@ public class StudentEnrollment implements StudentEnrollmentManager{
         this.semester = semester;
     }
 
+    static HashSet<StudentEnrollment> eSet = new HashSet<>();
+    
     public String getStudentId(){
         return student.getId();
     }
@@ -47,6 +51,19 @@ public class StudentEnrollment implements StudentEnrollmentManager{
         return semester;
     }
 
+    public static boolean add(StudentEnrollment student) {
+        return eSet.add(student);
+    }
+
+    public boolean delete(StudentEnrollment o) {
+        return StudentEnrollment.eSet.remove(o);
+    }
+
+    public boolean update(StudentEnrollment o, StudentEnrollment newO) {
+        this.delete(o);
+        return StudentEnrollment.add(newO);
+    }
+
     public static StudentEnrollment newStudentEnrollment(Student student, Course course, String semester){
         return new StudentEnrollment(student, course,semester);
       }
@@ -61,16 +78,20 @@ public class StudentEnrollment implements StudentEnrollmentManager{
 
     @Override
     public boolean add() {
+        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public boolean delete() {
+        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public boolean update() {
+        // TODO Auto-generated method stub
         return false;
     }
+
 }
