@@ -1,12 +1,14 @@
 package COSC2440.enrollment;
 
-import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 
 import COSC2440.course.Course;
 import COSC2440.student.Student;
 
 
-public class StudentEnrollment implements StudentEnrollmentManager{
+public class StudentEnrollment {
+    
     Student student;
     Course course;
     String semester;
@@ -17,8 +19,20 @@ public class StudentEnrollment implements StudentEnrollmentManager{
         this.semester = semester;
     }
 
-    static HashSet<StudentEnrollment> eSet = new HashSet<>();
-    
+    public static StudentEnrollment createEnrollment(Student student, Course course, String semester) {
+        return new StudentEnrollment(student, course, semester);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentEnrollment that = (StudentEnrollment) o;
+        return Objects.equals(student, that.student) &&
+                Objects.equals(course, that.course) &&
+                Objects.equals(semester, that.semester);
+    }
+
     public String getStudentId(){
         return student.getId();
     }
@@ -47,51 +61,16 @@ public class StudentEnrollment implements StudentEnrollmentManager{
         return semester;
     }
 
-    public static String setSemester(String semester) {
-        return semester;
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
-
-    public static boolean add(StudentEnrollment student) {
-        return eSet.add(student);
-    }
-
-    public boolean delete(StudentEnrollment o) {
-        return StudentEnrollment.eSet.remove(o);
-    }
-
-    public boolean update(StudentEnrollment o, StudentEnrollment newO) {
-        this.delete(o);
-        return StudentEnrollment.add(newO);
-    }
-
-    public static StudentEnrollment newStudentEnrollment(Student student, Course course, String semester){
-        return new StudentEnrollment(student, course,semester);
-      }
 
     public String toString() {
-        return "student: " + student.getId() + " " + student.getName() + " | course: " + course.getId() + " " + course.getName() + " | Semester: " + semester;
+        return "student: " + student.getId() + " " + student.getName() +
+                " | course: " + course.getId() + " " + course.getName() +
+                " | Semester: " + semester;
     }
+
     
-    public String[] toPrint() {
-        return new String[]{this.student.getId(), this.course.getId(), this.semester};
-    }
-
-    @Override
-    public boolean add() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean delete() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean update() {
-        // TODO Auto-generated method stub
-        return false;
-    }
 
 }

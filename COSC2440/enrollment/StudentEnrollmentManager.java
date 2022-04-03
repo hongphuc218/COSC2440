@@ -1,9 +1,12 @@
 package COSC2440.enrollment;
 
-public interface StudentEnrollmentManager {
-    public boolean add();
-    public boolean delete();
-    public boolean update();
+import java.util.List;
 
+public interface StudentEnrollmentManager {
+    public boolean add(StudentEnrollment newEnrollment);
+    public boolean update(StudentEnrollment update, StudentEnrollment newUpdate);
+    public boolean delete(StudentEnrollment deleteEnrollment);
+    public boolean getOne(StudentEnrollment course);
+    public List<StudentEnrollment> getAll();
 }
 

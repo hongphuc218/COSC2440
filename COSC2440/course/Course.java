@@ -1,13 +1,15 @@
 package COSC2440.course;
 
-import java.util.HashSet;
+import java.util.List;
 
-import COSC2440.ReadCSV.PrintOut;
+import COSC2440.ReadCSV.ReadCSV;
 
-public class Course implements PrintOut{    
+public class Course {    
     String id;
     String name;
     int credit;
+
+    List<Course> courses = ReadCSV.readCSVCourse("COSC2440\\src\\default.csv");
 
     public Course(String id, String name, int credit) {
         this.id = id;
@@ -15,8 +17,13 @@ public class Course implements PrintOut{
         this.credit = credit;
     }
 
-    static HashSet<Course> cSet = new HashSet<>();
+    public Course(){}
+
     
+    public static Course createCourse(String id, String name, int credit) {
+        return new Course(id, name, credit);
+    }
+
     public String getName() {
         return name;
     }
@@ -25,48 +32,7 @@ public class Course implements PrintOut{
         return id;
     }
 
-    public int getCourseCredit() {
-        return credit;
-    }
-
-    public static boolean add(Course course) {
-        return cSet.add(course);
-    }
-
-    public boolean delete(Course o) {
-        return cSet.remove(o);
-    }
-
-    public boolean update(Course o, Course newO) {
-        this.delete(o);
-        return Course.add(newO);
-    }
-
-    public HashSet<Course> getCourseList() {
-        return cSet;
-    }
-
-    public <string> Course getOne(string detail) {
-        for (Course c: cSet
-        ) { if (detail.equals(c.getName()) | detail.equals(c.getId())){
-          return c;
-        }}
-        return null;
-    }
-    
-    public HashSet<Course> getAll() {
-       return (new HashSet<>(cSet));
-    }
-
-    public static Course createCourse(String id, String name, int credit) {
-        return new Course(id, name, credit);
-    }
-
     public String toString() {
         return "Course ID: " + id + " " + "| Course name: " + name + " " + "| Number of credits: " + credit;
-    }
-
-    public String[] toPrint() {
-        return new String[] {this.id, this.name, String.valueOf(this.credit)};
     }
 }
