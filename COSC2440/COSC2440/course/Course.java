@@ -1,16 +1,11 @@
 package COSC2440.course;
 
-import java.util.List;
-
-import COSC2440.ReadCSV.ReadCSV;
 import COSC2440.enrollment.StudentEnrollmentSystem;
 
 public class Course extends StudentEnrollmentSystem {
     String id;
     String name;
     int credit;
-
-    List<Course> courses = ReadCSV.readCSVCourse("COSC2440\\src\\default.csv");
 
     public Course(String id, String name, int credit) {
         this.id = id;

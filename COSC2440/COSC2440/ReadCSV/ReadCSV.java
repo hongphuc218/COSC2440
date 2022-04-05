@@ -9,10 +9,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static COSC2440.enrollment.StudentEnrollmentSystem.courses;
-import static COSC2440.enrollment.StudentEnrollmentSystem.students;
-
-
 public class ReadCSV {
 
     public static List<Student> readCSVStudent(String fileName) {

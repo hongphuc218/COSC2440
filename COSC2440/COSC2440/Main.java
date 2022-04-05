@@ -5,15 +5,12 @@ import COSC2440.enrollment.StudentEnrollment;
 import COSC2440.enrollment.StudentEnrollmentSystem;
 import COSC2440.student.Student;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args){
-
+        StudentEnrollmentSystem ses = new StudentEnrollmentSystem();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to the Student Enrollment System! \n" +
@@ -22,9 +19,9 @@ public class Main {
         System.out.println("Enter your ID: ");
         String id1 = sc.nextLine();
         System.out.println("Enter your Birthdate: ");
-        String birhtdate1 = sc.nextLine();
-        Student student1 = new Student(name1, id1, birhtdate1);
-        System.out.println(student1.toString());
+        String birthdate1 = sc.nextLine();
+        Student student1 = new Student(name1, id1, birthdate1);
+        System.out.println(student1);
 
         System.out.println("Choose your option to continue: \n" +
                             "1. Create a new enrollment \n" +
@@ -49,24 +46,26 @@ public class Main {
             System.out.println("Enter number of credit:");
             int cre1 = sc.nextInt();
             Course course1 = new Course(cname1, cid1, cre1);
-            System.out.println(course1.toString());
+            System.out.println(course1);
             StudentEnrollment enrollment1 = new StudentEnrollment(student1, course1, sem1);
 
             if (StudentEnrollmentSystem.enrollments.contains(enrollment1)) {
                 System.out.println("This enrollment already existed");
             }
-            else System.out.println("Enrollment successfully: " + enrollment1.toString());
+            else System.out.println("Enrollment successfully: " + enrollment1);
             StudentEnrollmentSystem.enrollments.add(enrollment1);
 
             case "2":
             System.out.println("Update an enrollment");
-            System.out.println("");
+            System.out.println();
 
             case "3":
             System.out.println("Delete an enrollment");
             System.out.println("Enter a Course you want to erase");
             String delCourse = sc.nextLine();
 
+            case "4":
+            System.out.println(StudentEnrollmentSystem.courses.toString());
             case "5":
 
         }
