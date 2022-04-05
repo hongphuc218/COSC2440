@@ -1,8 +1,6 @@
 package COSC2440.enrollment;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import COSC2440.ReadCSV.ReadCSV;
 import COSC2440.course.Course;
@@ -10,29 +8,24 @@ import COSC2440.student.Student;
 
 public class StudentEnrollmentSystem implements StudentEnrollmentManager{
 
-    List<Student> students = ReadCSV.readCSVStudent("COSC2440\\src\\default.csv");
+    static List<Student> students = ReadCSV.readCSVStudent("COSC2440\\src\\default.csv");
 
-    List<Course> courses = ReadCSV.readCSVCourse("COSC2440\\src\\default.csv");
+    static List<Course> courses = ReadCSV.readCSVCourse("COSC2440\\src\\default.csv");
 
-    List<StudentEnrollment> enrollments = new ArrayList<>();
+    public static List<StudentEnrollment> enrollments = ReadCSV.readCSVEnrollment("COSC2440\\src\\default.csv");
 
+    StudentEnrollment compare;
 
-
-    public String getInput(){
-        Scanner sc = new Scanner(System.in);
-        if (sc.hasNext()) {
-            return sc.next();
-        }   else return null;
-    }
+    static StudentEnrollmentSystem instance = new StudentEnrollmentSystem();
 
     @Override
     public boolean add(StudentEnrollment newEnrollment) {
-        return this.enrollments.add(newEnrollment);
+        return StudentEnrollmentSystem.enrollments.add(newEnrollment);
     }
 
     @Override
-    public boolean delete(StudentEnrollment enrollment) {
-        return this.enrollments.remove(enrollment);
+    public void delete(StudentEnrollment enrollment) {
+        StudentEnrollmentSystem.enrollments.remove(enrollment);
 
     }
     @Override
@@ -43,7 +36,7 @@ public class StudentEnrollmentSystem implements StudentEnrollmentManager{
     
     @Override
     public List<StudentEnrollment> getAll() {
-        return this.enrollments;
+        return StudentEnrollmentSystem.enrollments;
     }
 
     @Override
@@ -56,5 +49,12 @@ public class StudentEnrollmentSystem implements StudentEnrollmentManager{
             System.out.println(course.toString());
         }
     }
- 
+
+    public static StudentEnrollmentSystem getInstance() {
+        return instance;
+    }
+
+    public void setToBeCompared(StudentEnrollment compare) {
+        this.compare = compare;
+    }
 }

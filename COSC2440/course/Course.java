@@ -3,8 +3,9 @@ package COSC2440.course;
 import java.util.List;
 
 import COSC2440.ReadCSV.ReadCSV;
+import COSC2440.enrollment.StudentEnrollmentSystem;
 
-public class Course {    
+public class Course extends StudentEnrollmentSystem {
     String id;
     String name;
     int credit;

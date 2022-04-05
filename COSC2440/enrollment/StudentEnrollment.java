@@ -7,7 +7,7 @@ import COSC2440.course.Course;
 import COSC2440.student.Student;
 
 
-public class StudentEnrollment {
+public class StudentEnrollment extends StudentEnrollmentSystem {
     
     Student student;
     Course course;
@@ -66,9 +66,12 @@ public class StudentEnrollment {
     }
 
     public String toString() {
-        return "student: " + student.getId() + " " + student.getName() +
-                " | course: " + course.getId() + " " + course.getName() +
+        return "Student: " + student.getId() + " " + student.getName() +
+                " | Course: " + course.getId() + " " + course.getName() +
                 " | Semester: " + semester;
+    }
+
+    public void delete(String delCourse) {
     }
 
     
